@@ -1,0 +1,7 @@
+<%= link_to "Back", catalogues_path %>
+<%= link_to "Edit", edit_catalogue_path %>
+<h1><%= @catalogue.title %></h1>
+<h2><%= @catalogue.description %></h2>
+<br>
+<%= image_tag @catalogue.image.variant(:thumb) %>
+

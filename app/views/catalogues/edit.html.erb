@@ -1,0 +1,21 @@
+<%= link_to "Back", catalogues_path %>
+<h1><%= @catalogue.title %></h1>
+
+<%= form_with model: @catalogue, local: true do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= form.submit "Upload" %>
+  </div>
+<% end %>
+

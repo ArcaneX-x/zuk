@@ -1,0 +1,35 @@
+<% if @catalogue.errors.any? %>
+  <% @catalogue.errors.full_messages.each do |message|%>\
+    <h3><%= message %> </h3>
+  <% end %>
+<% end %>
+
+</br>
+
+<%= form_for @catalogue do |form| %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+    <%# if @catalogue.errors[:description].any? %>
+<!--      <p><%#= @catalogue.errors.full_messages_for(:description).join(', ') %></p>-->
+    <%# end %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+    <%# if @catalogue.errors[:image].any? %>
+<!--      <p><%#= @catalogue.errors.full_messages_for(:image).join(', ') %></p>-->
+    <%# end %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit "Upload" %>
+  </div>
+<% end %>

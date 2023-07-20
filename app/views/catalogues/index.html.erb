@@ -1,0 +1,6 @@
+<p><%= link_to 'New', new_catalogue_path %></p>
+<p>---------------------------</p>
+<% @catalogues.each do | catalogue |%>
+  <%= catalogue.title %>
+  <%= link_to "Show", catalogue_path(catalogue) %>
+  <% end %>
