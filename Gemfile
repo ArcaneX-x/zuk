@@ -4,8 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.2"
 gem "rails", "~> 7.0.5"
 
-gem 'devise', '~> 4.9', '>= 4.9.2'
-
 # needed for the images active record resize
 gem 'ruby-vips', '~> 2.1', '>= 2.1.4'
 
