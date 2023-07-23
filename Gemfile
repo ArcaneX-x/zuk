@@ -15,6 +15,8 @@ gem 'bootsnap', require: false
 gem 'image_processing', '~> 1.2'
 gem 'active_storage_validations', '~> 1.0', '>= 1.0.4'
 
+gem 'bcrypt'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'

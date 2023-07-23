@@ -30,7 +30,7 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./services/callback-router:/callback-router
+      - ./:/magical_pathways
     stdin_open: true
     tty: true
     depends_on:

@@ -1,27 +1,37 @@
 # base interactor class: logging, errors handling, monads-like behaviour
 class MainStory
-  attr_reader :params, :mirror
+  attr_reader :params
   attr_accessor :consequences, :bad_twists
 
+  class << self
+    attr_accessor :mirror
+  end
+
   def initialize(params, mirror = Illustrations::Mirror.new)
+    self.class.mirror = mirror
+    @bad_twists = {}
     @params = params
-    @mirror = mirror
-    @bad_twists = []
   end
 
   def self.call(args)
     story = new(**args)
 
     story = listen_carefully do
-      reflect_start
+      mirror.reflect_start(story)
       story.call
-      reflect_end
+      mirror.reflect_end(story)
     end
 
     story
   end
 
   whispers
+
+  def self.listen_carefully
+    catch(:wolf!) do
+      yield
+    end
+  end
 
   # здесь должен быть код, который вызывает ошибку, но не критичную
   def howl_in_the_distance(crisis_plot)
@@ -32,12 +42,6 @@ class MainStory
   def wolves!(telling, crisis_plot)
     bad_twists << crisis_plot
     throw(:wolf!, telling)
-  end
-
-  def listen_carefully
-    catch(:wolf!) do
-      yield
-    end
   end
 
   shouts
