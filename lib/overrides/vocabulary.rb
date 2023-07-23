@@ -1,4 +1,4 @@
-Module.instance_exec do
+Module.class_exec do
   alias :shouts :public
   alias :whispers :private
 end
