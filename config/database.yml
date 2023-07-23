@@ -84,6 +84,4 @@ test:
 #
 production:
   <<: *default
-  database: zuk_production
-  username: zuk
-  password: <%= ENV["ZUK_DATABASE_PASSWORD"] %>
+  database: magic_book_production

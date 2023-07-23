@@ -53,4 +53,8 @@ class MainStory
   def good_ending?
     bad_twists.empty?
   end
+
+  def to_s
+    "Story: #{self.class.name}, params: #{params}, result: #{consequences}, errors: #{bad_twists}"
+  end
 end

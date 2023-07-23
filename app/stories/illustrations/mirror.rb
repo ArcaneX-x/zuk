@@ -1,6 +1,6 @@
 module Illustrations
   # class for logging
-  class Mirror < MainStory
+  class Mirror
     attr_reader :surface
 
     def initialize(surface = Rails.logger)
@@ -8,11 +8,11 @@ module Illustrations
     end
 
     def reflect_start(object)
-      surface.info "Story starts: #{object.class.name}, params: #{object.params}"
+      surface.info "Story starts: #{object}"
     end
 
     def reflect_end(object)
-      surface.info "Story ends: #{object.class.name}, params: #{object.params}"
+      surface.info "Story ends: #{object}"
     end
   end
 end

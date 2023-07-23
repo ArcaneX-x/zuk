@@ -1,0 +1,16 @@
+development:
+  host: redis
+  port: 6379
+  db: 0
+  password: redis-pass
+
+test:
+  host: redis
+  port: 6379
+  db: 0
+  password: redis-pass
+
+production:
+  host: redis.example.com
+  port: 6379
+  db: 0

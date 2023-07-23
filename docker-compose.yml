@@ -35,3 +35,4 @@ services:
     tty: true
     depends_on:
       - postgres
+      - redis

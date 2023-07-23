@@ -16,6 +16,8 @@ gem 'image_processing', '~> 1.2'
 gem 'active_storage_validations', '~> 1.0', '>= 1.0.4'
 
 gem 'bcrypt'
+gem 'redis'
+gem 'connection_pool'
 
 group :development, :test do
   gem 'byebug'
