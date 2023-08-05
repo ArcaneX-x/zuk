@@ -20,9 +20,10 @@ gem 'redis'
 gem 'connection_pool'
 
 group :development, :test do
-  gem 'byebug'
+  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'faker'
+  gem 'factory_bot_rails'
 end
 
 group :development do

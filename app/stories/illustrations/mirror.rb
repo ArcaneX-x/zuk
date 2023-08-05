@@ -3,16 +3,22 @@ module Illustrations
   class Mirror
     attr_reader :surface
 
-    def initialize(surface = Rails.logger)
+    def initialize(surface: Rails.logger)
       @surface = surface
     end
 
     def reflect_start(object)
-      surface.info "Story starts: #{object}"
+      reflect "Story starts: #{object}"
     end
 
     def reflect_end(object)
-      surface.info "Story ends: #{object}"
+      reflect "Story ends: #{object}"
+    end
+
+    whispers
+
+    def reflect(something)
+      surface.info "\n #{something}"
     end
   end
 end

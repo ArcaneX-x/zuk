@@ -10,6 +10,8 @@ module Chapters
         else
           howl_in_the_distance(user_not_saved: user.errors.full_messages)
         end
+
+        self
       end
 
       whispers

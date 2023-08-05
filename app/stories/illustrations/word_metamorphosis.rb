@@ -5,7 +5,7 @@ module Illustrations
   class WordMetamorphosis < MainStory
     attr_reader :secret
 
-    def initialize(mystic_dust = nil)
+    def initialize(mystic_dust: nil)
       @mystic_dust = mystic_dust
     end
 
