@@ -2,10 +2,11 @@ class Message < ApplicationRecord
   belongs_to :messagable, polymorphic: true
   validates :body, presence: true
 
-  # TODO add source_message_id ID type column
+  belongs_to :source_message, class_name: 'Message', foreign_key: :source_id, optional: true
+  has_many :messages, class_name: 'Message', foreign_key: :source_id
 
   def source_message?
-    source_message_id.blank?
+    source_id.blank?
   end
 
   def child_message?

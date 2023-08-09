@@ -4,5 +4,5 @@ class Catalogue < ApplicationRecord
     attachable.variant :thumb, resize_to_limit: [400, 400]
   end
   validates :title, :description, presence: true
-  validates :image, attached: true, content_type: [:jpg, :jpeg]
+  # validates :image, attached: true, content_type: [:jpg, :jpeg]
 end

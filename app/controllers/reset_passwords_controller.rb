@@ -6,8 +6,7 @@ class ResetPasswordsController < ApplicationController
     user = User.find_by(email: params[:email])
 
     if user
-      user.create_token
-      user.reset_password_sent_at
+      user.create_token && user.password_sent_at
 
       if user.save
         # TODO send email to a user
