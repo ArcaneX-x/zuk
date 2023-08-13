@@ -2,7 +2,7 @@ require 'bcrypt'
 
 module Illustrations
   # class for hashing strings
-  class WordMetamorphosis < MainStory
+  class WordMetamorphosis
     attr_reader :secret
 
     def initialize(mystic_dust: nil)

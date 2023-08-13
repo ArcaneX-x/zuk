@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'oj'
 require 'redis'
 require 'connection_pool'
 
@@ -14,15 +15,10 @@ class RedisCacher
     end
   end
 
-  def set(key, value)
+  def set(key, value, expire: nil)
+    value = dumped_(value)
     pool.with do |conn|
-      conn.set(key, value)
-    end
-  end
-
-  def set_with_expire(key, value, expire)
-    pool.with do |conn|
-      conn.setex(key, expire, value)
+      expire ? conn.setex(key, expire, value) : conn.set(key, value)
     end
   end
 
@@ -34,7 +30,7 @@ class RedisCacher
 
   def get(key)
     pool.with do |conn|
-      conn.get(key)
+      loaded_ conn.get(key)
     end
   end
 
@@ -47,5 +43,13 @@ class RedisCacher
 
   def redis_config
     Rails.application.config_for(:redis)
+  end
+
+  def dumped_(value)
+    Oj.dump(value)
+  end
+
+  def loaded_(value)
+    Oj.load(value)
   end
 end

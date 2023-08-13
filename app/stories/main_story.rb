@@ -15,11 +15,12 @@ class MainStory
     story = new(...)
 
     mirror.reflect_start(story)
-    story = listen_carefully { story.call }
+    telling = listen_carefully { story.call }
     mirror.reflect_end(story)
 
-    story
+    telling
   end
+  private_class_method :new
 
   whispers
 

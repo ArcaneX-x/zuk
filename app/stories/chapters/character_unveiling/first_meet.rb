@@ -1,6 +1,7 @@
 module Chapters
   module CharacterUnveiling
     class FirstMeet < MainStory
+      include Illustrations::CharacterBehaviour
 
       def call
         user = user_model.new(email: params[:email], password: params[:password])
@@ -12,12 +13,6 @@ module Chapters
         end
 
         self
-      end
-
-      whispers
-
-      def user_model
-        params[:user_model].constantize rescue NameError
       end
     end
   end
