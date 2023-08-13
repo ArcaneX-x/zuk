@@ -43,7 +43,7 @@ module Chapters
         {
           user_id: user.id,
           user_model: user.class.name,
-          last_seen: Time.current
+          last_seen: Time.current.to_i
         }
       end
 
